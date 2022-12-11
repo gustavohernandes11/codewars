@@ -1,25 +1,17 @@
 /*
 DESCRIPTION:
 Given a string of numbers, you must perform a method in which you will translate this string into text, following the next image.
+	> for example if you get 22 you will b, if you get 222 you will return c. if you get 2222 return ca
 
-for example if you get 22 you will b, if you get 222 you will return c. if you get 2222 return ca
-
-Here some samples:
-443355555566604466690277733099966688 -> hello how are you., 55282 -> kata.
-
-1 is used to separate letters with the same number.
-
-always transform the number to the letter with the maximum value, as long as it does not have a 1 in the middle.
-
-777777 = "sq". 7717777 = "qs".
-
-you cannot type digits
-
-0 are spaces in the string.
-
-Given a empty string, return empty string.
-
-Return a lowercase string.
+	Here some samples:
+	- 443355555566604466690277733099966688 -> hello how are you., 55282 -> kata.
+	- 1 is used to separate letters with the same number.
+	- always transform the number to the letter with the maximum value, as long as it does not have a 1 in the middle.
+	- 777777 = "sq". 7717777 = "qs".
+	- you cannot type digits
+	- 0 are spaces in the string.
+	- Given a empty string, return empty string.
+	- Return a lowercase string.
 */
 
 const keyValues = {
@@ -34,8 +26,8 @@ const keyValues = {
 	9: ["w", "x", "y", "z"],
 };
 
-function translate(string) {
-	let splitedString = string.trim().toLowerCase().split("");
+function phoneWords(stringOfNums) {
+	let splitedString = stringOfNums.trim().toLowerCase().split("");
 
 	let count = 0;
 	try {
@@ -58,17 +50,17 @@ function translate(string) {
 			return character;
 		});
 	} catch {
-		return "Error: Only numbers are allowed as input";
+		return "Error: There was an error translating the code. Try using only numbers as input";
 	}
 
 	return tranlatedString.join("");
 }
 console.log(
-	`7717777: ${translate("7717777")} \n`,
-	`777777: ${translate("777777")} \n`,
-	`443355555566604466690277733099966688: ${translate(
+	`7717777: ${phoneWords("7717777")} \n`,
+	`777777: ${phoneWords("777777")} \n`,
+	`443355555566604466690277733099966688: ${phoneWords(
 		"443355555566604466690277733099966688"
 	)} \n`,
-	`"": ${translate("")} \n`,
-	`"abc": ${translate("abc")}`
+	`"": ${phoneWords("")} \n`,
+	`"abc": ${phoneWords("abc")}`
 );
