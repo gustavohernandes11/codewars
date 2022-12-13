@@ -55,12 +55,3 @@ function phoneWords(stringOfNums) {
 
 	return tranlatedString.join("");
 }
-console.log(
-	`7717777: ${phoneWords("7717777")} \n`,
-	`777777: ${phoneWords("777777")} \n`,
-	`443355555566604466690277733099966688: ${phoneWords(
-		"443355555566604466690277733099966688"
-	)} \n`,
-	`"": ${phoneWords("")} \n`,
-	`"abc": ${phoneWords("abc")}`
-);
